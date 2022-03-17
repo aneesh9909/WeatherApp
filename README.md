@@ -9,3 +9,6 @@ Running with docker
 Running without docker 
 
 php artisan serve 
+
+Default URL and port number<br>
+http://localhost:8089/
