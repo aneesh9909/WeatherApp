@@ -147,7 +147,7 @@
                                 <p>Map</p>
                                 <div class="card2">
                                     <iframe id="map_canvas" name="map_canvas" width="100%" height="425px"
-                                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAPiSqz8ZW2bOwV31gjsZSzblwJGUJAmpc&q={{$data->getZip()}},jp">
+                                            src="https://www.google.com/maps/embed/v1/place?key={{ env('GOOGLE_APIKEY') }}&q={{$data->getZip()}},jp">
                                     </iframe>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@
                                             <p style="margin: 10px;font-size: 18px;font-weight: bold">{{ $place->getName() }}</p>
                                             <div style="display: flex">
                                                 <img alt="alt"
-                                                     src="{{"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=".$place->getPhotoUrl()."&key=AIzaSyAPiSqz8ZW2bOwV31gjsZSzblwJGUJAmpc"}}">
+                                                     src="{{"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=".$place->getPhotoUrl()."&key=".env('GOOGLE_APIKEY')}}">
                                                 <div style="text-align: left;margin: 10px;">
                                                     <p style="color: {{$place->getIconBgColour()}};font-size: 16px">{{ $place->getBusinessStatus() }}</p>
                                                     <p>Average user rating : {{ $place->getRatings() }}/5</p>
@@ -168,7 +168,7 @@
                                                     <p>Address : {{ $place->getVicinity() }}</p>
                                                     <p>
                                                         <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id={{ $place->getPlaceid() }}"
-                                                           target="_blank">View details on Google Maps</a></p>
+                                                           target="_blank">View more details</a></p>
                                                 </div>
                                             </div>
                                         </div>
